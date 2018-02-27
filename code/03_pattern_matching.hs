@@ -9,9 +9,9 @@ head' :: [a] -> a
 head' (hd : tl) = hd
 
 
--- write tail
 tail' :: [a] -> [a]
 tail' = undefined
 
 second :: [a] -> a
 second = undefined
+

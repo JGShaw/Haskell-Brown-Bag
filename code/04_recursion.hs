@@ -10,6 +10,13 @@ double_list [] = []
 double_list (hd:tl) = hd * 2 : double_list tl
 
 
+-- A litle bit harder
+maximum' :: [Integer] -> Integer
+maximum' [] = error "Cannot get the the maximum of an empty list"
+maximum' [x] = x
+maximum' (hd : tl) = max hd (maximum' tl)
+
+
 --List function
 
 last' :: [a] -> a
