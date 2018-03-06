@@ -8,10 +8,9 @@ say x = "I only know the first three!"
 head' :: [a] -> a
 head' (hd : tl) = hd
 
-
+--undefined
 tail' :: [a] -> [a]
-tail' = undefined
+tail' (hd : tl) = tl
 
 second :: [a] -> a
-second = undefined
-
+second (hd1 : hd2 : tl) = hd2

@@ -11,9 +11,10 @@ map' f [] = []
 map' f (hd : tl) = f hd : map' f tl
 
 
--- Write filter
-filter' = undefined
+--undefined
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' f [] = []
+filter' f (hd : tl)
+  | f hd = hd : filter' f tl
+  | otherwise = filter' f tl
 
-
--- Lambdas
-doubled = map' (\x -> x * 2) [1,2,3,4,5]
