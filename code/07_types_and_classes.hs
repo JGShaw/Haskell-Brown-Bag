@@ -44,6 +44,6 @@ t = Node 1 [Leaf 2, Node 3 [Leaf 4, Leaf 5, Leaf 6]]
 --        / | \
 --       4  5  6
 
+-- Add all the values in the tree
 tree_sum :: Num a => Tree a -> a 
-tree_sum (Leaf x) = x
-tree_sum (Node x children) = x + (sum $ map tree_sum children)
+tree_sum = undefined

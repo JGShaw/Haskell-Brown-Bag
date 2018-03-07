@@ -1,2 +1,0 @@
-description:
-  This talk is a basic introduction to the features and syntax of Haskell, a purely functional programming language.

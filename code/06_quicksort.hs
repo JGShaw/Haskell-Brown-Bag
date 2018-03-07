@@ -9,11 +9,7 @@ filter' f (hd : tl)
 
 --undefined
 quicksort :: [Integer] -> [Integer]
-quicksort [] = []
-quicksort (hd : tl) = quicksort left ++ [hd] ++ quicksort right
-  where
-    left = filter (\x -> x <= hd) tl
-    right = filter (\x -> x > hd) tl
+quicksort = undefined
 
 
 
@@ -26,11 +22,11 @@ tests = TestList [TestLabel "test 1" test_sorted]
 -- property based testing
 -- quickCheck prop_length
 prop_length :: [Integer] -> Bool
-prop_length xs = length xs == length (quicksort xs)
+prop_length xs = undefined
 
 -- quickCheck prop_sorted
 prop_sorted :: [Integer] -> Bool
-prop_sorted xs = is_sorted $ quicksort xs
+prop_sorted xs = undefined
 
 is_sorted :: [Integer] -> Bool
 is_sorted [] = True
