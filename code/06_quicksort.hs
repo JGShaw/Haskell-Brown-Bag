@@ -1,4 +1,6 @@
-import Test.HUnit
+import Test.Hspec
+import Test.QuickCheck
+import Control.Exception (evaluate)
 
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' _ [] = []
@@ -13,22 +15,19 @@ quicksort = undefined
 
 
 
--- unit tests
-test_sorted = TestCase (assertEqual "test sorted" [1,2,3,4,5] $ quicksort [5,3,4,1,2] )
-tests = TestList [TestLabel "test 1" test_sorted]
--- runTestTT tests
+-- runhaskell code/06_quicksort.hs
+main :: IO ()
+main = hspec $ do
+  describe "quicksort" $ do
+    it "Can sort a list" $ do
+      quicksort [5,4,1,3,2] `shouldBe` [1,2,3,4,5]
 
+    it "Sorting the list does not change the size" $
+      property (\xs -> length xs == (length $ quicksort xs))
 
--- property based testing
--- quickCheck prop_length
-prop_length :: [Integer] -> Bool
-prop_length xs = undefined
-
--- quickCheck prop_sorted
-prop_sorted :: [Integer] -> Bool
-prop_sorted xs = undefined
+    it "Always gives sorted lists" $
+      property (\xs -> is_sorted $ quicksort xs)
 
 is_sorted :: [Integer] -> Bool
-is_sorted [] = True
-is_sorted [_] = True
 is_sorted (hd1 : hd2 : tl) = if hd1 <= hd2 then is_sorted (hd2 : tl) else False
+is_sorted _ = True
