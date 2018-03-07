@@ -26,10 +26,10 @@ main = hspec $ do
       quicksort [5,4,1,3,2] `shouldBe` [1,2,3,4,5]
 
     it "Sorting the list does not change the size" $
-      property (\xs -> length xs == (length $ quicksort xs))
+      property $ \xs -> length xs == (length $ quicksort xs)
 
     it "Always gives sorted lists" $
-      property (\xs -> is_sorted $ quicksort xs)
+      property $ \xs -> is_sorted $ quicksort xs
 
 is_sorted :: [Integer] -> Bool
 is_sorted (hd1 : hd2 : tl) = if hd1 <= hd2 then is_sorted (hd2 : tl) else False
