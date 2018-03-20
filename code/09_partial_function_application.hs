@@ -1,10 +1,10 @@
-multiply :: Integer -> Integer -> Integer
+multiply :: Integer -> (Integer -> Integer)
 multiply a b = a * b
 
 double :: Integer -> Integer
-double a = multiply 2 a
+double a = (multiply 2) a
 
-
+double' = multiply 2
 
 
 
@@ -12,5 +12,5 @@ double a = multiply 2 a
 union :: Eq a => [a] -> [a] -> [a]
 union l1 l2 = filter (contains l1) l2
 
-contains :: Eq a => [a] -> a -> Bool
-contains reference x = x `elem` reference
+contains :: Eq a => [a] -> (a -> Bool)
+contains reference x = elem x reference
